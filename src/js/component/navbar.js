@@ -1,17 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export const Navbar = () => {
-	return (
-		<nav className="navbar navbar-light bg-light mb-3">
-			<Link to="/">
-				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
-			</Link>
-			<div className="ml-auto">
-				<Link to="/demo">
-					<button className="btn btn-primary">Check the Context in action</button>
-				</Link>
-			</div>
-		</nav>
-	);
+  const location = useLocation();
+  if (location.pathname === "/")
+    return (
+      <nav className="navbar p-2 mb-2 mt-2 justify-content-end ">
+        <div className="ml-auto">
+          <Link to="/addContact">
+            <button className="btn btn-success">Add new contact</button>
+          </Link>
+        </div>
+      </nav>
+    );
 };
